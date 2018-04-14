@@ -9,23 +9,23 @@ const transporter = nodemailer.createTransport({
 });
 
 /**
- * GET /contact
- * Contact form page.
+ * GET /philanthropy
+ * philanthropy form page.
  */
-exports.getContact = (req, res) => {
+exports.getphilanthropy = (req, res) => {
   const unknownUser = !(req.user);
 
-  res.render('contact', {
-    title: 'Contact',
+  res.render('philanthropy', {
+    title: 'philanthropy',
     unknownUser,
   });
 };
 
 /**
- * POST /contact
- * Send a contact form via Nodemailer.
+ * POST /philanthropy
+ * Send a philanthropy form via Nodemailer.
  */
-exports.postContact = (req, res) => {
+exports.postphilanthropy = (req, res) => {
   let fromName;
   let fromEmail;
   if (!req.user) {
@@ -38,7 +38,7 @@ exports.postContact = (req, res) => {
 
   if (errors) {
     req.flash('errors', errors);
-    return res.redirect('/contact');
+    return res.redirect('/philanthropy');
   }
 
   if (!req.user) {
@@ -52,16 +52,16 @@ exports.postContact = (req, res) => {
   const mailOptions = {
     to: 'your@email.com',
     from: `${fromName} <${fromEmail}>`,
-    subject: 'Contact Form | Hackathon Starter',
+    subject: 'philanthropy Form | Hackathon Starter',
     text: req.body.message
   };
 
   transporter.sendMail(mailOptions, (err) => {
     if (err) {
       req.flash('errors', { msg: err.message });
-      return res.redirect('/contact');
+      return res.redirect('/philanthropy');
     }
     req.flash('success', { msg: 'Email has been sent successfully!' });
-    res.redirect('/contact');
+    res.redirect('/philanthropy');
   });
 };
