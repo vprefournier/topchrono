@@ -1,43 +1,7 @@
 const mongoose = require('mongoose');
-
-const userSchema = new mongoose.Schema({
-	email : {type : String, unique : true},
-	password : String,
-	passwordResetToken : String,
-	passwordResetExpires : Date,
-
-	facebook : String,
-	twitter : String,
-	google : String,
-	github : String,
-	instagram : String,
-	linkedin : String,
-	steam : String,
-	tokens : Array,
-
-	profile : {
-		title : String,
-		firstName : String,
-		lastName : String,
-		address : {
-			country : String,
-			province : String,
-			number : String,
-			road : String,
-			type : String,
-			direction : String,
-			deliveryPoint : String,
-			apt : String,
-			city : String,
-			postalCode : String
-		},
-		phone : {
-			Home : String,
-			office : String,
-			extension : String
-		},
-		picture : String
-	}
+const User = require('./User');
+const donationSchema = new mongoose.Schema({
+	user : User
 }, {timestamps : true});
 
 /**

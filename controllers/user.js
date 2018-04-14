@@ -77,7 +77,7 @@ exports.getSignup = (req, res) => {
 	if (req.user) {
 		return res.redirect('/');
 	}
-	res.render('account/signup', {
+	res.render('/', {
 		title : 'Create Account'
 	});
 };
@@ -101,7 +101,19 @@ exports.postSignup = (req, res, next) => {
 
 	const user = new User({
 		email : req.body.email,
-		password : req.body.password
+		password : req.body.password,
+		profile : {
+			title : '',
+			firstName : '',
+			lastName : '',
+			country : '',
+			province : '',
+			address : '',
+			city : '',
+			postalCode : '',
+			phone : '',
+			picture : ''
+		}
 	});
 
 	User.findOne({email : req.body.email}, (err, existingUser) => {
@@ -110,7 +122,7 @@ exports.postSignup = (req, res, next) => {
 		}
 		if (existingUser) {
 			req.flash('errors', {msg : 'Account with that email address already exists.'});
-			return res.redirect('/signup');
+			return res.redirect('/');
 		}
 		user.save((err) => {
 			if (err) {
@@ -156,10 +168,18 @@ exports.postUpdateProfile = (req, res, next) => {
 			return next(err);
 		}
 		user.email = req.body.email || '';
-		user.profile.name = req.body.name || '';
-		user.profile.gender = req.body.gender || '';
-		user.profile.location = req.body.location || '';
-		user.profile.website = req.body.website || '';
+		user.profile.title = req.body.title || '';
+		user.profile.firstName = req.body.firstName || '';
+		user.profile.lastName = req.body.lastName || '';
+		user.profile.country = req.body.country || '';
+		user.profile.province = req.body.province || '';
+		user.profile.address = req.body.address || '';
+		user.profile.city = req.body.city || '';
+		user.profile.postalCode = req.body.postalCode || '';
+		user.profile.phone = req.body.phone || '';
+		user.profile.picture = req.body.picture || '';
+
+
 		user.save((err) => {
 			if (err) {
 				if (err.code === 11000) {
