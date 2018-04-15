@@ -18,8 +18,8 @@ jQuery(document).ready(function() {
     });
     // latest post slider call 
     $('.latest_postnav').newsTicker({
-        row_height: 1000,
-        speed: 10000
+        row_height: 2000,
+        speed: 2000
     });
     jQuery(".fancybox-buttons").fancybox({
         prevEffect: 'none',
