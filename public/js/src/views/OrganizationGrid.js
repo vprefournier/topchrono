@@ -36,7 +36,9 @@ class OrganizationGrid extends Backbone.View {
                 </div>
                </div>							
 							<br/>
-							<button class="btn btn-primary btn-sm donateNow" href="#">Donate NOW</button>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#donationModal">
+                                Donner Maintenant
+                            </button>
 						</div>
 					</div>
 				</div>
