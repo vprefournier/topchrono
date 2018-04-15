@@ -6,7 +6,8 @@ html
   body
     include partials/header
     div.wrapper
-      include partials/leftSideBar
+      if user
+        include partials/leftSideBar
       div#content(style='width:100%')
         block content
     include partials/donateModal
