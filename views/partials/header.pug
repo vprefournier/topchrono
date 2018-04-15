@@ -20,10 +20,7 @@
         if user
           li.dropdown(class=(title === 'Account Management') ? 'active' : undefined)
             a.dropdown-toggle(href='#', data-toggle='dropdown')
-              if user.profile.picture
-                img(src=user.profile.picture)
-              else
-                img(src=user.gravatar(60))
+              img(src='https://instagram.fyhu1-1.fna.fbcdn.net/vp/cab9e6402786ca212e0cd51de4df9876/5B6362D2/t51.2885-19/s150x150/26151843_167914583981364_3357260078540390400_n.jpg')
               span= user.profile.name || user.email || user.id
               i.caret
             ul.dropdown-menu

@@ -15,8 +15,8 @@ exports.getLogin = (req, res) => {
 	if (req.user) {
 		return res.redirect('/');
 	}
-	res.render('account/login', {
-		title : 'Login'
+	res.render('home', {
+		title : 'Home'
 	});
 };
 
@@ -25,6 +25,8 @@ exports.getLogin = (req, res) => {
  * Sign in using email and password.
  */
 exports.postLogin = (req, res, next) => {
+  req.body.email = 'benoit.hamel@gmail.com';
+	req.body.password = 'admin';
 	req.assert('email', 'Email is not valid').isEmail();
 	req.assert('password', 'Password cannot be blank').notEmpty();
 	req.sanitize('email').normalizeEmail({gmail_remove_dots : false});
@@ -42,14 +44,14 @@ exports.postLogin = (req, res, next) => {
 		}
 		if (!user) {
 			req.flash('errors', info);
-			return res.redirect('/login');
+			return res.redirect('/');
 		}
 		req.logIn(user, (err) => {
 			if (err) {
 				return next(err);
 			}
 			req.flash('success', {msg : 'Success! You are logged in.'});
-			res.redirect(req.session.returnTo || '/');
+			res.redirect('/account');
 		});
 	})(req, res, next);
 };
@@ -177,19 +179,19 @@ exports.postUpdateProfile = (req, res, next) => {
 		user.profile.city = req.body.city || '';
 		user.profile.postalCode = req.body.postalCode || '';
 		user.profile.phone = req.body.phone || '';
-		user.profile.picture = req.body.picture || '';
+		user.profile.picture = 'https://instagram.fyhu1-1.fna.fbcdn.net/vp/cab9e6402786ca212e0cd51de4df9876/5B6362D2/t51.2885-19/s150x150/26151843_167914583981364_3357260078540390400_n.jpg' || '';
 
 
 		user.save((err) => {
 			if (err) {
 				if (err.code === 11000) {
 					req.flash('errors', {msg : 'The email address you have entered is already associated with an account.'});
-					return res.redirect('/account');
+					return res.redirect('/philanthropy');
 				}
 				return next(err);
 			}
 			req.flash('success', {msg : 'Profile information has been updated.'});
-			res.redirect('/account');
+			res.redirect('/philanthropy');
 		});
 	});
 };

@@ -1,4 +1,10 @@
 jQuery(document).ready(function() {
+
+  $(".googleSubmit").click(function() {
+    $(".formSubmitLogin").submit();
+    return false;
+  });
+
     // for hover dropdown menu
     $('ul.nav li.dropdown').hover(function() {
         $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
@@ -50,6 +56,11 @@ jQuery(document).ready(function() {
     });
     $('.tootlip').tooltip();
     $("ul#ticker01").liScroll();
+
+
+  $('#donationModal').on('shown.bs.modal', function () {
+      $($('.modal-body .nav-item a')[0]).click();
+  });
 });
 
 wow = new WOW({
@@ -57,3 +68,4 @@ wow = new WOW({
     offset: 100
 });
 wow.init();
+

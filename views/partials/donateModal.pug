@@ -3,24 +3,38 @@
     .modal-dialog(role='document')
         .modal-content
             .modal-header
-                h5#exampleModalLabel.modal-title Modal title
+                h3#exampleModalLabel.modal-title Donate now
                 button.close(type='button', data-dismiss='modal', aria-label='Close')
                     span(aria-hidden='true') ×
             .modal-body
                 article.card
                     .card-body.p-5
+                        .userInfo
+                            h4 User Information
+                            p Email : #{user.email}
+                            p Title : #{user.profile.title}
+                            p First name : #{user.profile.firstName}
+                            p Last name : #{user.profile.lastName}
+                            p Country : #{user.profile.country}
+                            p Province : #{user.profile.province}
+                            p Address : #{user.profile.address}
+                            p City : #{user.profile.city}
+                            p Postal code : #{user.profile.postalCode}
+                            p Phone : #{user.profile.phone}
+
                         ul.nav.bg-light.nav-pills.rounded.nav-fill.mb-3(role='tablist')
                             li.nav-item
-                                a.nav-link.active(data-toggle='pill', href='#nav-tab-card')
+                                a.nav-link(data-toggle='pill', href='#nav-tab-card')
                                     i.fa.fa-credit-card
                                     |  Credit Card
-                            li.nav-item
+                            li.nav-item.active
                                 a.nav-link(data-toggle='pill', href='#nav-tab-paypal')
                                     i.fab.fa-paypal
                                     |   Paypal
+
                         .tab-content
-                            #nav-tab-card.tab-pane.fade.show.active
-                                p.alert.alert-success Some text success or error
+                            #nav-tab-card.tab-pane.fade.active
+                                p
                                 form(role='form')
                                     .form-group
                                         label(for='username') Full name (on the card)
@@ -52,34 +66,15 @@
                                                 input.form-control(type='number', required='')
                                             // form-group.//
                                     // row.//
-                                    button.subscribe.btn.btn-primary.btn-block(type='button')  Confirm
                             // tab-pane.//
                             #nav-tab-paypal.tab-pane.fade
                                 p Paypal is easiest way to pay online
-                                p
-                                    button.btn.btn-primary(type='button')
+                                button.btn.btn-primary(type='button' style='display:block')
                                         i.fab.fa-paypal
                                         |  Log in my Paypal
-                                p
-                                    strong Note:
-                                    |  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            #nav-tab-bank.tab-pane.fade
-                                p Bank accaunt details
-                                dl.param
-                                    dt BANK:
-                                    dd  THE WORLD BANK
-                                dl.param
-                                    dt Accaunt number:
-                                    dd  12345678912345
-                                dl.param
-                                    dt IBAN:
-                                    dd  123456789
-                                p
-                                    strong Note:
-                                    |  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             // tab-pane.//
                         // tab-content .//
                     // card-body.//
             .modal-footer
-                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-                button.btn.btn-primary(type='button') Save changes
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Confirm Donation
+
