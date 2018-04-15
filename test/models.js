@@ -3,9 +3,9 @@ const sinon = require('sinon');
 require('sinon-mongoose');
 const dotenv = require('dotenv');
 
+const async = require('async');
 const User = require('../models/User');
 const Organization = require('../models/Organization');
-const Project = require('../models/Project');
 const mongoose = require('mongoose');
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -126,15 +126,143 @@ describe('User Model', () => {
 describe.only('New Organization and projet', function() {
 	this.timeout(100000);
 	it('Create Fondation du CHUS', function(done) {
-		let organization = new Organization({
-			id : 1,
-			name : 'Fondation du CHUS',
-			logo : 'https://www.jedonneenligne.org/fondationchus/view.php?file_id=logo_Logoofficiel.jpg',
-			description : 'Notre mission est de contribuer à l’excellence des soins et des services prodigués à l’Hôpital Fleurimont et à l’Hôtel-Dieu de Sherbrooke, principalement par l’acquisition d’équipements médicaux  et en soutenant la recherche médicale.'
-		});
-		organization.save((err) => {
+		let organizations = [];
 
-			done(err);
-		});
+		organizations.push(new Organization({
+      id : 1,
+      title : "Soins  Mère - Enfant",
+      description : "Ce nouveau pavillon adjacent au CHUS – Hôpital Fleurimont rassemblera sous un même toit les services et soins offerts aux 0-18 ans en santé physique, santé mentale et soins dédiés à la périnatalité.\\n\n" +
+      "Il rehaussera la qualité de l’environnement hospitalier et consolidera l’approche en soins, centrée sur le patient et sa famille.",
+      image : "https://images.radio-canada.ca/q_auto,w_960/v1/ici-info/16x9/pavillon-enfant-soleil-sherbrooke.jpg",
+      amount : "100 000$",
+      numDonors : 875,
+      moneySoFar : "9 003$",
+      category : "Développement de soins",
+      percentage : 0.09
+    }));
+
+    organizations.push(new Organization({
+      id : 2,
+      title : "Imagerie Médicale",
+      description : "Les chercheurs de l’axe travaillent aussi à la synthèse de nouveaux radiotraceurs, d’agents de contraste et de radiosensibilisateurs, de même qu’au développement d’essais précliniques et cliniques visant à valider ces substances issues de la recherche, avant leur commercialisation.",
+      image : "http://cr.chus.qc.ca/uploads/pics/CRCELB_CHUS_maquette_Low.jpg",
+      amount : "174 000$",
+      numDonors : 234,
+      moneySoFar : "13 000$",
+      category : "Développement de soins",
+      percentage : 0.07
+    }));
+
+    organizations.push(new Organization({
+      id : 3,
+      title : "Laboratoire",
+      description : "Les laboratoires de Biologie médicale du CIUSSS de l'Estrie-CHUS fournissent un service complet d'analyses diagnostiques de routine, spécialisées et ultraspécialisées en biochimie, hématologie, microbiologie, pathologie, immunologie et en génétique médicale.",
+      image : "http://www.chus.qc.ca/typo3temp/pics/47b81c9480.jpg",
+      amount : "600 000$",
+      numDonors : 334,
+      moneySoFar : "30 400$",
+      category : "Développement de soins",
+      percentage : 0.05
+    }));
+
+    organizations.push(new Organization({
+      id : 4,
+      title : "Médecine générale et urgence",
+      description : "Médecine générale et urgence",
+	    image : "http://www.chus.qc.ca/fileadmin/doc_chus/Le_CHUS/Grands_projets/Mise_%C3%A0_jour_sept2012/chirurgie.JPG",
+      amount : "1 000 000$",
+      numDonors : 4848,
+      moneySoFar : "789 000$",
+      category : "Développement de soins",
+      percentage : 0.78
+    }));
+
+    organizations.push(new Organization({
+      id : 5,
+      title : "Recherche (sur le santé)",
+      description : "Le Centre de recherche du Centre hospitalier universitaire de Sherbrooke (CRCHUS) exerce un leadership dans la genèse et le transfert de connaissances qui visent à améliorer la santé. À cette ¬fin, il favorise l’excellence de ses chercheurs en partant de ses forces et de son milieu. Il off re un environnement collaboratif propice à la créativité et aux partenariats. Les activités de recherche qu’il soutient contribuent à la réalisation de soins et services de santé innovants.",
+      amount : "100 300$",
+      numDonors : 102,
+      moneySoFar : "956$",
+      category : "Développement de soins",
+      percentage : 0.01
+    }));
+
+    organizations.push(new Organization({
+      id : 6,
+      title : "Soins cardio pulmonaires",
+      description : "",
+      image : "http://www.chus.qc.ca/typo3conf/ext/chus_carte_interactive/carte_interactive/admin/incoming/20130716145746_porte_60_test2.gif",
+      amount : "1 000 000$",
+      numDonors : 8974,
+      moneySoFar : "75 600$",
+      category : "Développement de soins",
+      percentage : 0.01
+    }));
+
+    organizations.push(new Organization({
+      id : 7,
+      title : "Soins critiques et traumatologie",
+      description : "Revoir rapidement les patients post-trauma nécessitant une consultation en orthopédie et diminuer l’achalandage de la salle d’urgence.",
+      image : "http://www.chus.qc.ca/fileadmin/doc_chus/Le_CHUS/Grands_projets/Mise_%C3%A0_jour_sept2012/CHUS_HF.jpg",
+      amount : "500 000$",
+      numDonors : 2985,
+      moneySoFar : "398 000$",
+      category : "Développement de soins",
+      percentage : 0.8
+    }));
+
+    organizations.push(new Organization({
+      id : 8,
+      title : "Santé mentale",
+      description : "Le Programme en santé mentale du CHUS offre différents soins spécialisés de santé mentale à la population de l'Estrie : Centre d'expertise; Approches intensives; Troubles affectifs; Troubles psychotiques; Centre de rétablissement intensif; Psychiatrie légale.",
+      image : "https://www.santeestrie.qc.ca/uploads/pics/Livre_AP.jpg",
+      amount : "1 000 000$",
+      numDonors : 1023,
+      moneySoFar : "249 003$",
+      category : "Développement de soins",
+      percentage : 0.25
+    }));
+
+    organizations.push(new Organization({
+      id : 9,
+      title : "Soins Oncologiques",
+      description : "Évaluation et prise en charge des patients avec cancers.",
+      image : "http://www.chus.qc.ca/fileadmin/doc_chus/Centre_des_medias/Communiques_2013/CHUS_Com_prix_direction_cancerologie_photos_01.jpg",
+      amount : "400 000$",
+      numDonors : 958,
+      moneySoFar : "33 000$",
+      category : "Développement de soins",
+      percentage : 0.08
+    }));
+
+    organizations.push(new Organization({
+      id : 10,
+      title : "Soins Pharmaceutiques",
+      description : "Favoriser l'émergence de pharmaciens-chercheurs et le développement et le rayonnement d'activités novatrices de recherche sur les pratiques pharmaceutiques.",
+      image : "https://sherbrooke-innopole.com/fr/assets/7-Centre-de-recherche-clinique-Etienne-Le-Bel.jpg",
+      amount : "350 900$",
+      numDonors : 5654,
+      moneySoFar : "100 023$",
+      category : "Développement de soins",
+      percentage : 0.28
+    }));
+
+    organizations.push(new Organization({
+      id : 11,
+      title : "Soins chirurgicaux",
+      description : "En plus de prodiguer des soins chirurgicaux pédiatriques spécialisés, la mission du Service de chirurgie, en autre de la chirurgie pédiatrique comporte d'autres volets, tels qu'enseigner auprès des externes et des résidents des programmes de pédiatrie et de chirurgie..",
+	    image : "https://gcm-v2.omerlocdn.com/production/global/files/image/f8962bc1-e391-4f25-b3e2-54cad29cfa02_1024.jpg",
+      amount : "15 000 000$",
+      numDonors : 47826,
+      moneySoFar : "4 340 009$",
+      category : "Développement de soins",
+      percentage : 0.29
+    }));
+
+    async.each(organizations, (organization, eachCb) => {
+      organization.save(eachCb);
+    }, done);
+
 	});
 });

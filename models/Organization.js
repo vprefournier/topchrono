@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 
 const organizationSchema = new mongoose.Schema({
-	id : Number,
-	name : String,
-	logo : String,
-	description : String
+  id : Number,
+  title : String,
+  description : String,
+  image : String,
+  amount : String,
+  numDonors : Number,
+  moneySoFar : String,
+  category : String,
+  percentage : Number
 }, {timestamps : true});
 
 const Organization = mongoose.model('Organization', organizationSchema);
