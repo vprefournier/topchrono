@@ -15,7 +15,7 @@ class OrganizationsRouter extends Backbone.Router {
     super(options)
     this.collection = new OrganizationCollection()
     this.organizationGrid = new OrganizationGrid({
-      el: $('body div.row'),
+      el: $('body div.projects-container'),
       collection: this.collection
     })
   }

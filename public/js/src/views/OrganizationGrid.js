@@ -1,10 +1,10 @@
 const Backbone = require('Backbone')
 const OrganizationRow = require('./OrganizationRow')
-const _ = require('underscore');
+const _ = require('underscore')
 
 class OrganizationGrid extends Backbone.View {
   constructor (options) {
-    super(options);
+    super(options)
 
     // Find and initialize the row template.
     let rowTplString = `<div class="col-xs-12 col-sm-6 col-md-4">
@@ -25,9 +25,16 @@ class OrganizationGrid extends Backbone.View {
 						<div class="card-body text-center mt-4">
 							<h4 class="card-title"><%- title %></h4><p class="card-text"><%- description %></p>
 							<br/>
-							<p><b>Donators: </b> <%- numDonors %></p>
-							<p><b>Goal: </b> <%- amount %></p>
-							<p><b>Current: </b> <%- moneySoFar %></p>
+							<div class="row">
+							<div class="col-md-6">
+                <p><b>Donators: </b> <%- numDonors %></p>
+                <p><b>Goal: </b> <%- amount %></p>
+                <p><b>Current: </b> <%- moneySoFar %></p>
+							</div>
+							<div class="col-md-6">
+							  <div class="GaugeMeter" id="GaugeMeter_<%- id %>" data-text="" data-percent="<%- (percentage) %>"></div>
+                </div>
+               </div>							
 							<br/>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#donationModal">
                                 Donner Maintenant
@@ -37,18 +44,21 @@ class OrganizationGrid extends Backbone.View {
 				</div>
 			</div>
 		</div>
-	</div>`;
-    this._rowTpl = _.template(rowTplString);
-    this.listenTo(this.collection, 'sync', this.render);
+	</div>`
+    this._rowTpl = _.template(rowTplString)
+    this.listenTo(this.collection, 'sync', this.render)
   }
 
   render () {
-    let container = document.createDocumentFragment();
+    let container = document.createDocumentFragment()
     this.collection.forEach((model) => {
-      let row = new OrganizationRow({model : model, rowTemplate : this._rowTpl});
-      row.render();
-      this.$el.append(row.el);
+      let row = new OrganizationRow({model: model, rowTemplate: this._rowTpl})
+      row.render()
+      this.$el.append(row.el)
     });
+
+    $(".GaugeMeter").gaugeMeter();
+
   }
 }
 

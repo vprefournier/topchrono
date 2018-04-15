@@ -137,7 +137,7 @@ describe.only('New Organization and projet', function() {
       numDonors : 875,
       moneySoFar : "9 003$",
       category : "Développement de soins",
-      percentage : 0.09
+      percentage : 9
     }));
 
     organizations.push(new Organization({
@@ -149,7 +149,7 @@ describe.only('New Organization and projet', function() {
       numDonors : 234,
       moneySoFar : "13 000$",
       category : "Développement de soins",
-      percentage : 0.07
+      percentage : 7
     }));
 
     organizations.push(new Organization({
@@ -161,43 +161,43 @@ describe.only('New Organization and projet', function() {
       numDonors : 334,
       moneySoFar : "30 400$",
       category : "Développement de soins",
-      percentage : 0.05
+      percentage : 5
     }));
 
     organizations.push(new Organization({
       id : 4,
       title : "Médecine générale et urgence",
-      description : "Médecine générale et urgence",
+      description : "La médecine générale est une spécialité médicale prenant en charge le suivi durable, le bien-être et les soins médicaux généraux primaires d'une communauté.",
 	    image : "http://www.chus.qc.ca/fileadmin/doc_chus/Le_CHUS/Grands_projets/Mise_%C3%A0_jour_sept2012/chirurgie.JPG",
       amount : "1 000 000$",
       numDonors : 4848,
       moneySoFar : "789 000$",
       category : "Développement de soins",
-      percentage : 0.78
+      percentage : 78
     }));
 
     organizations.push(new Organization({
       id : 5,
-      title : "Recherche (sur le santé)",
+      title : "Recherche (sur la santé)",
       description : "Le Centre de recherche du Centre hospitalier universitaire de Sherbrooke (CRCHUS) favorise l’excellence de ses chercheurs en partant de ses forces et de son milieu. Il offre un environnement collaboratif propice à la créativité et aux partenariats.",
       image : "http://cr.chus.qc.ca/uploads/pics/CRCELB-CHUS_modif_01.jpg",
       amount : "100 300$",
       numDonors : 102,
       moneySoFar : "956$",
       category : "Développement de soins",
-      percentage : 0.01
+      percentage : 1
     }));
 
     organizations.push(new Organization({
       id : 6,
       title : "Soins cardio pulmonaires",
-      description : "",
+      description : "Les technologues cardiopulmonaires aident les médecins en ce qui a trait aux aspects techniques du diagnostic et du traitement des maladies cardiopulmonaires et respiratoires.",
       image : "http://www.chus.qc.ca/typo3conf/ext/chus_carte_interactive/carte_interactive/admin/incoming/20130716145746_porte_60_test2.gif",
       amount : "1 000 000$",
       numDonors : 8974,
       moneySoFar : "75 600$",
       category : "Développement de soins",
-      percentage : 0.01
+      percentage : 1
     }));
 
     organizations.push(new Organization({
@@ -209,7 +209,7 @@ describe.only('New Organization and projet', function() {
       numDonors : 2985,
       moneySoFar : "398 000$",
       category : "Développement de soins",
-      percentage : 0.8
+      percentage : 8
     }));
 
     organizations.push(new Organization({
@@ -221,19 +221,19 @@ describe.only('New Organization and projet', function() {
       numDonors : 1023,
       moneySoFar : "249 003$",
       category : "Développement de soins",
-      percentage : 0.25
+      percentage : 25
     }));
 
     organizations.push(new Organization({
       id : 9,
       title : "Soins Oncologiques",
-      description : "Évaluation et prise en charge des patients avec cancers.",
+      description : "Évaluation et prise en charge des patients avec cancers. Tous les patients atteints de cancer doivent quelque soit leur lieu de prise en charge, avoir accès à des soins oncologiques de support",
       image : "http://www.chus.qc.ca/fileadmin/doc_chus/Centre_des_medias/Communiques_2013/CHUS_Com_prix_direction_cancerologie_photos_01.jpg",
       amount : "400 000$",
       numDonors : 958,
       moneySoFar : "33 000$",
       category : "Développement de soins",
-      percentage : 0.08
+      percentage : 8
     }));
 
     async.each(organizations, (organization, eachCb) => {
