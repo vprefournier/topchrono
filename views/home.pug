@@ -2,28 +2,11 @@ extends layout
 
 block content
   if !user
-    block content
+    .container-fluid
       .page-header
         h3 Sign in
       form.form-horizontal(action="/login" method='POST')
         input(type='hidden', name='_csrf', value=_csrf)
-        .form-group
-          label.col-sm-3.control-label(for='email') Email
-          .col-sm-7
-            input.form-control(type='email', name='email', id='email_login', placeholder='Email', autofocus, required)
-        .form-group
-          label.col-sm-3.control-label(for='password') Password
-          .col-sm-7
-            input.form-control(type='password', name='password', id='password_login', placeholder='Password', required)
-        .form-group
-          .col-sm-offset-3.col-sm-7
-            button.col-sm-3.btn.btn-primary(type='submit')
-              i.far.fa-user.fa-sm
-              | Login
-            a.btn.btn-link(href='/forgot') Forgot your password?
-        .form-group
-          .col-sm-offset-3.col-sm-7
-            hr
         .form-group
           .col-sm-offset-3.col-sm-7
             a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
@@ -44,6 +27,21 @@ block content
             a.btn.btn-block.btn-instagram.btn-social(href='/auth/instagram')
               i.fab.fa-instagram.fa-sm
               | Sign in with Instagram
+        .form-group
+          label.col-sm-3.control-label(for='email') Email
+          .col-sm-7
+            input.form-control(type='email', name='email', id='email_login', placeholder='Email', autofocus, required)
+        .form-group
+          label.col-sm-3.control-label(for='password') Password
+          .col-sm-7
+            input.form-control(type='password', name='password', id='password_login', placeholder='Password', required)
+        .form-group
+          .col-sm-offset-3.col-sm-7
+            button.col-sm-3.btn.btn-primary(type='submit')
+              i.far.fa-user.fa-sm
+              | Login
+            a.btn.btn-link(href='/forgot') Forgot your password?
+
 
       .page-header
         h3 Sign up
