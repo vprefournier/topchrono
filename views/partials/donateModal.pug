@@ -1,0 +1,85 @@
+// Modal
+#donationModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title Modal title
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') ×
+            .modal-body
+                article.card
+                    .card-body.p-5
+                        ul.nav.bg-light.nav-pills.rounded.nav-fill.mb-3(role='tablist')
+                            li.nav-item
+                                a.nav-link.active(data-toggle='pill', href='#nav-tab-card')
+                                    i.fa.fa-credit-card
+                                    |  Credit Card
+                            li.nav-item
+                                a.nav-link(data-toggle='pill', href='#nav-tab-paypal')
+                                    i.fab.fa-paypal
+                                    |   Paypal
+                        .tab-content
+                            #nav-tab-card.tab-pane.fade.show.active
+                                p.alert.alert-success Some text success or error
+                                form(role='form')
+                                    .form-group
+                                        label(for='username') Full name (on the card)
+                                        input.form-control(type='text', name='username', placeholder='', required='')
+                                    // form-group.//
+                                    .form-group
+                                        label(for='cardNumber') Card number
+                                        .input-group
+                                            input.form-control(type='text', name='cardNumber', placeholder='')
+                                            .input-group-append
+                                                span.input-group-text.text-muted
+                                                    i.fab.fa-cc-visa
+                                                    i.fab.fa-cc-amex
+                                                    i.fab.fa-cc-mastercard
+                                    // form-group.//
+                                    .row
+                                        .col-sm-8
+                                            .form-group
+                                                label
+                                                    span.hidden-xs Expiration
+                                                .input-group
+                                                    input.form-control(type='number', placeholder='MM', name='')
+                                                    input.form-control(type='number', placeholder='YY', name='')
+                                        .col-sm-4
+                                            .form-group
+                                                label(data-toggle='tooltip', title='', data-original-title='3 digits code on back side of the card')
+                                                    | CVV
+                                                    i.fa.fa-question-circle
+                                                input.form-control(type='number', required='')
+                                            // form-group.//
+                                    // row.//
+                                    button.subscribe.btn.btn-primary.btn-block(type='button')  Confirm
+                            // tab-pane.//
+                            #nav-tab-paypal.tab-pane.fade
+                                p Paypal is easiest way to pay online
+                                p
+                                    button.btn.btn-primary(type='button')
+                                        i.fab.fa-paypal
+                                        |  Log in my Paypal
+                                p
+                                    strong Note:
+                                    |  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            #nav-tab-bank.tab-pane.fade
+                                p Bank accaunt details
+                                dl.param
+                                    dt BANK:
+                                    dd  THE WORLD BANK
+                                dl.param
+                                    dt Accaunt number:
+                                    dd  12345678912345
+                                dl.param
+                                    dt IBAN:
+                                    dd  123456789
+                                p
+                                    strong Note:
+                                    |  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            // tab-pane.//
+                        // tab-content .//
+                    // card-body.//
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(type='button') Save changes

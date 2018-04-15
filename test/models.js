@@ -16,7 +16,7 @@ dotenv.load({path: '../.env'});
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27028/test');
+mongoose.connect('mongodb://admin:BishopsCS@ds125555.mlab.com:25555/demo');
 mongoose.connection.on('error', (err) => {
 	console.error(err);
 	console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
