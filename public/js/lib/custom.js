@@ -9,19 +9,17 @@ jQuery(document).ready(function() {
     $('.slick_slider').slick({
         dots: true,
         infinite: true,
-        speed: 800,
+        speed: 100,
         slidesToShow: 1,
         slide: 'div',
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 20000,
         cssEase: 'linear'
     });
     // latest post slider call 
     $('.latest_postnav').newsTicker({
-        row_height: 64,
-        speed: 800,
-        prevButton: $('#prev-button'),
-        nextButton: $('#next-button')
+        row_height: 1000,
+        speed: 10000
     });
     jQuery(".fancybox-buttons").fancybox({
         prevEffect: 'none',

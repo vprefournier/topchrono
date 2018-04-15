@@ -198,17 +198,6 @@ img:hover {
   z-index: 99999
 }
 
-#status {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  background-image: url(images/status.gif);
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: -100px 0 0 -100px
-}
 
 .scrollToTop {
   bottom: 105px;
@@ -487,22 +476,12 @@ img:hover {
   transition: all 0.5s
 }
 
-.social_nav li.facebook a {
-  background-image: url("images/socials.png");
-  background-position: 0 -30px;
-  background-size: 270px 60px
-}
+
 
 .social_nav li.facebook a:hover {
   background-position: 0 0px;
   background-size: 270px 60px;
   background-color: #436eac
-}
-
-.social_nav li.twitter a {
-  background-image: url("images/socials.png");
-  background-position: -30px -30px;
-  background-size: 270px 60px
 }
 
 .social_nav li.twitter a:hover {
@@ -511,22 +490,11 @@ img:hover {
   background-color: #0598c9
 }
 
-.social_nav li.flickr a {
-  background-image: url("images/socials.png");
-  background-position: -60px -30px;
-  background-size: 270px 60px
-}
 
 .social_nav li.flickr a:hover {
   background-position: -60px 0px;
   background-size: 270px 60px;
   background-color: #e33b7e
-}
-
-.social_nav li.pinterest a {
-  background-image: url("images/socials.png");
-  background-position: -90px -30px;
-  background-size: 270px 60px
 }
 
 .social_nav li.pinterest a:hover {
@@ -535,23 +503,12 @@ img:hover {
   background-color: #cb2027
 }
 
-.social_nav li.googleplus a {
-  background-image: url("images/socials.png");
-  background-position: -120px -30px;
-  background-size: 270px 60px
-}
-
 .social_nav li.googleplus a:hover {
   background-position: -120px 0px;
   background-size: 270px 60px;
   background-color: #d64b2e
 }
 
-.social_nav li.vimeo a {
-  background-image: url("images/socials.png");
-  background-position: -150px -30px;
-  background-size: 270px 60px
-}
 
 .social_nav li.vimeo a:hover {
   background-position: -150px 0px;
@@ -559,24 +516,11 @@ img:hover {
   background-color: #86ae24
 }
 
-.social_nav li.youtube a {
-  background-image: url("images/socials.png");
-  background-position: -180px -30px;
-  background-size: 270px 60px;
-  width: 60px
-}
 
 .social_nav li.youtube a:hover {
   background-position: -180px 0px;
   background-size: 270px 60px;
   background-color: #e32114
-}
-
-.social_nav li.mail a {
-  background-image: url("images/socials.png");
-  background-position: -240px -30px;
-  background-size: 270px 60px;
-  width: 32px
 }
 
 .social_nav li.mail a:hover {
@@ -637,23 +581,11 @@ img:hover {
   content: ""
 }
 
-.slick-prev {
-  background-image: url(images/slider_prev.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  left: 10px
-}
 
 .slick-next:before {
   content: ""
 }
 
-.slick-next {
-  background-image: url(images/slider_next.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  left: 60px
-}
 
 .slick-prev, .slick-next {
   background-color: #000;
@@ -929,7 +861,7 @@ img:hover {
   min-height: 100%;
   max-width: 100%;
   width: 100%;
-  height: 100%
+  height: 100%;
   opacity: 0.8
 }
 
@@ -1846,3 +1778,4 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
       width: 32.1%
     }
   }
+}

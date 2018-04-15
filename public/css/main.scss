@@ -1,6 +1,7 @@
 @import "themes/default/variables";
 
 @import "lib/bootstrap/bootstrap";
+
 @import "lib/font-awesome/fontawesome";
 @import "lib/font-awesome/fa-brands";
 @import "lib/font-awesome/fa-regular";
@@ -98,9 +99,9 @@ body {
 
 p {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 300;
-  line-height: 1.7em;
+  line-height: 1.4em;
   color: #999;
 }
 
@@ -141,8 +142,8 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 25%;
+  max-width: 25%;
   background: #7386D5;
   color: #fff;
   transition: all 0.3s;
@@ -245,6 +246,7 @@ a.article, a.article:hover {
 @media (max-width: 768px) {
   #sidebar {
     margin-left: -250px;
+    overflow:hidden;
   }
   #sidebar.active {
     margin-left: 0;
@@ -252,4 +254,56 @@ a.article, a.article:hover {
   #sidebarCollapse span {
     display: none;
   }
+}
+
+
+
+@import "feed/feed";
+@import "projects/projects";
+.latest_post {
+  overflow: hidden;
+}
+.latest_postnav {
+  li {
+    list-style: none;
+    .media {
+      .media-body {
+        .feed-image {
+          max-width: 25%;
+        }
+        span.feed-text{
+          max-width: 75%;
+
+        }
+      }
+    }
+  }
+  padding: 0;
+  overflow: hidden;
+}
+
+.post-container {
+  margin: 20px 20px 0 0;
+  border: 1px solid #333;
+  overflow: auto
+}
+.post-thumb {
+  float: left
+}
+.post-thumb img {
+  display: block;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+}
+.post-content {
+  margin-left: 60px;
+  .post-text {
+    font-size: .9em;
+    padding : 0;
+  }
+}
+.post-title {
+  font-weight: bold;
+  margin: 10px;
 }
