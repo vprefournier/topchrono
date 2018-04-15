@@ -131,8 +131,7 @@ describe.only('New Organization and projet', function() {
 		organizations.push(new Organization({
       id : 1,
       title : "Soins  Mère - Enfant",
-      description : "Ce nouveau pavillon adjacent au CHUS – Hôpital Fleurimont rassemblera sous un même toit les services et soins offerts aux 0-18 ans en santé physique, santé mentale et soins dédiés à la périnatalité.\\n\n" +
-      "Il rehaussera la qualité de l’environnement hospitalier et consolidera l’approche en soins, centrée sur le patient et sa famille.",
+      description : "Ce nouveau pavillon adjacent au CHUS – Hôpital Fleurimont rassemblera sous un même toit les services et soins offerts aux 0-18 ans en santé physique, santé mentale et soins dédiés à la périnatalité. Il rehaussera la qualité de l’environnement hospitalier et consolidera l’approche en soins, centrée sur le patient et sa famille.",
       image : "https://images.radio-canada.ca/q_auto,w_960/v1/ici-info/16x9/pavillon-enfant-soleil-sherbrooke.jpg",
       amount : "100 000$",
       numDonors : 875,
@@ -180,7 +179,8 @@ describe.only('New Organization and projet', function() {
     organizations.push(new Organization({
       id : 5,
       title : "Recherche (sur le santé)",
-      description : "Le Centre de recherche du Centre hospitalier universitaire de Sherbrooke (CRCHUS) exerce un leadership dans la genèse et le transfert de connaissances qui visent à améliorer la santé. À cette ¬fin, il favorise l’excellence de ses chercheurs en partant de ses forces et de son milieu. Il off re un environnement collaboratif propice à la créativité et aux partenariats. Les activités de recherche qu’il soutient contribuent à la réalisation de soins et services de santé innovants.",
+      description : "Le Centre de recherche du Centre hospitalier universitaire de Sherbrooke (CRCHUS) favorise l’excellence de ses chercheurs en partant de ses forces et de son milieu. Il offre un environnement collaboratif propice à la créativité et aux partenariats.",
+      image : "http://cr.chus.qc.ca/uploads/pics/CRCELB-CHUS_modif_01.jpg",
       amount : "100 300$",
       numDonors : 102,
       moneySoFar : "956$",
@@ -234,30 +234,6 @@ describe.only('New Organization and projet', function() {
       moneySoFar : "33 000$",
       category : "Développement de soins",
       percentage : 0.08
-    }));
-
-    organizations.push(new Organization({
-      id : 10,
-      title : "Soins Pharmaceutiques",
-      description : "Favoriser l'émergence de pharmaciens-chercheurs et le développement et le rayonnement d'activités novatrices de recherche sur les pratiques pharmaceutiques.",
-      image : "https://sherbrooke-innopole.com/fr/assets/7-Centre-de-recherche-clinique-Etienne-Le-Bel.jpg",
-      amount : "350 900$",
-      numDonors : 5654,
-      moneySoFar : "100 023$",
-      category : "Développement de soins",
-      percentage : 0.28
-    }));
-
-    organizations.push(new Organization({
-      id : 11,
-      title : "Soins chirurgicaux",
-      description : "En plus de prodiguer des soins chirurgicaux pédiatriques spécialisés, la mission du Service de chirurgie, en autre de la chirurgie pédiatrique comporte d'autres volets, tels qu'enseigner auprès des externes et des résidents des programmes de pédiatrie et de chirurgie..",
-	    image : "https://gcm-v2.omerlocdn.com/production/global/files/image/f8962bc1-e391-4f25-b3e2-54cad29cfa02_1024.jpg",
-      amount : "15 000 000$",
-      numDonors : 47826,
-      moneySoFar : "4 340 009$",
-      category : "Développement de soins",
-      percentage : 0.29
     }));
 
     async.each(organizations, (organization, eachCb) => {
